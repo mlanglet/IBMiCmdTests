@@ -1,0 +1,14 @@
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\IBMiCmdTests.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\IBMiCmdTests.pdb
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\IBMiCmd.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\IBMiCmd.pdb
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Mathias\mlanglet\IBMiCmdTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Mathias\mlanglet\IBMiCmdTests\obj\Debug\IBMiCmdTests.csprojResolveAssemblyReference.cache
+C:\Users\Mathias\mlanglet\IBMiCmdTests\obj\Debug\IBMiCmdTests.dll
+C:\Users\Mathias\mlanglet\IBMiCmdTests\obj\Debug\IBMiCmdTests.pdb
