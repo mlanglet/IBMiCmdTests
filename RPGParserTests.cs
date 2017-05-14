@@ -12,9 +12,8 @@ namespace IBMiCmd.Tests
     public class RPGParserTests
     {
         [TestMethod()]
-        public void parseFileTest()
+        public void parseCurrentFileForExtNameTest()
         {
-            Console.WriteLine("parseFileTest");
             Assert.IsTrue(true);
         }
     }
