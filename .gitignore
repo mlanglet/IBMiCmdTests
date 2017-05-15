@@ -7,9 +7,9 @@
 .metadata
 *.dll
 *.pdb
-bin/
-tmp/
-obj/
+/bin/
+/tmp/
+/obj/
 *.tmp
 *.bak
 *.swp
