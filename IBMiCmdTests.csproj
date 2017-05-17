@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="IBMiUtilitiesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPGAutoCompleterTests.cs" />
     <Compile Include="RPGParserTests.cs" />
   </ItemGroup>
   <ItemGroup>
