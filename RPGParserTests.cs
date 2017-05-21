@@ -16,5 +16,17 @@ namespace IBMiCmd.Tests
         {
             Assert.IsTrue(true);
         }
+
+        [TestMethod()]
+        public void GetVariableAtColumnTest()
+        {
+            Assert.IsTrue(RPGParser.GetVariableAtColumn(" myVar = 510", 4) == "myV");
+            Assert.IsTrue(RPGParser.GetVariableAtColumn(" myVariable_that_isLong", 23) == "myVariable_that_isLong");
+            Assert.IsTrue(RPGParser.GetVariableAtColumn("ds.", 3) == "ds");
+            Assert.IsTrue(RPGParser.GetVariableAtColumn("nested.ds.", 10) == "ds");
+            Assert.IsTrue(RPGParser.GetVariableAtColumn("  if myVar = 510;", 11) == "");
+            Assert.IsTrue(RPGParser.GetVariableAtColumn(" myVar = 510", 10) == "");
+            Assert.IsTrue(RPGParser.GetVariableAtColumn(" my<Var = 510", 4) == "");
+        }
     }
 }

@@ -15,28 +15,28 @@ namespace IBMiCmd.Tests
         public void isValidQSYSObjectNameTest()
         {
             string testInput = null; // null
-            Assert.IsFalse(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsFalse(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = ""; // empty
-            Assert.IsFalse(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsFalse(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = "1asd"; // begins with #
-            Assert.IsFalse(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsFalse(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = "abcdefghjklmno"; // too long
-            Assert.IsFalse(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsFalse(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = "a"; // Valid
-            Assert.IsTrue(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsTrue(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = "abc123"; // Valid
-            Assert.IsTrue(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsTrue(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = "abc_123"; // Valid
-            Assert.IsTrue(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsTrue(IBMiUtilities.IsValidQSYSObjectName(testInput));
 
             testInput = "abc_123_zz"; // Valid
-            Assert.IsTrue(IBMiUtilities.isValidQSYSObjectName(testInput));
+            Assert.IsTrue(IBMiUtilities.IsValidQSYSObjectName(testInput));
         }
 
 
@@ -45,28 +45,32 @@ namespace IBMiCmd.Tests
         {
             string testResult = null;
             string testInput = null; // Null
-            testResult = IBMiUtilities.extractString(testInput, null, "^");
+            testResult = IBMiUtilities.ExtractString(testInput, null, "^");
             Assert.IsTrue(testResult == "");
 
             testInput = ""; // Empty
-            testResult = IBMiUtilities.extractString(testInput, "123", "^");
+            testResult = IBMiUtilities.ExtractString(testInput, "123", "^");
             Assert.IsTrue(testResult == "");
 
             testInput = "dcl-ds "; // search arg too big
-            testResult = IBMiUtilities.extractString(testInput, "too long search", " like");
+            testResult = IBMiUtilities.ExtractString(testInput, "too long search", " like");
             Assert.IsTrue(testResult == "");
 
             testInput = "dcl-ds myDS likeDS(T_TABLE);"; // Extract part blanks
-            testResult = IBMiUtilities.extractString(testInput, "dcl-ds ", " like");
+            testResult = IBMiUtilities.ExtractString(testInput, "dcl-ds ", " like");
             Assert.IsTrue(testResult == "myDS");
 
             testInput = "dcl-ds myDS EXTNAME('MYTABLE') qualified alias"; // Extract part
-            testResult = IBMiUtilities.extractString(testInput, "EXTNAME('", "')");
+            testResult = IBMiUtilities.ExtractString(testInput, "EXTNAME('", "')");
             Assert.IsTrue(testResult == "MYTABLE");
 
             testInput = "dcl-ds myDS EXTNAME('MYTABLE') qualified alias"; // Extract no limit
-            testResult = IBMiUtilities.extractString(testInput, "EXTNAME('");
+            testResult = IBMiUtilities.ExtractString(testInput, "EXTNAME('");
             Assert.IsTrue(testResult == "MYTABLE') qualified alias");
+
+            testInput = "		<column type=\"int(10)\" length=\"4\">AMEOFLONGFIELDTWO</column>"; // Extract no limit
+            testResult = IBMiUtilities.ExtractString(testInput, "type=\"", "\"");
+            Assert.IsTrue(testResult == "int(10)");
         }
     }
 }
