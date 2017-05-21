@@ -144,7 +144,7 @@ namespace IBMiCmd.Tests
 
             RPGParser.dataStructures = testData;
 
-            List<string> result = RPGAutoCompleter.MatchLine("match");
+            List<string> result = RPGAutoCompleter.SearchDataStructureDefinitions("match");
             Assert.IsTrue(result.Count == 5);
             Assert.IsTrue(result.Contains("match1"));
             Assert.IsTrue(result.Contains("matchInnerInner"));
