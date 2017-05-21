@@ -16,14 +16,24 @@ namespace IBMiCmd.Tests
         {
             List<DataStructure> testData = new List<DataStructure>();
 
-            List<string> MyList = new List<string>();
-            List<string> MyList1 = new List<string>();
-            List<string> MyList2 = new List<string>();
-            List<string> MyList3 = new List<string>();
-            List<string> MyList4 = new List<string>();
-            List<string> MyList5 = new List<string>();
+            List<DataColumn> MyList  = new List<DataColumn>();
+            List<DataColumn> MyList1 = new List<DataColumn>();
+            List<DataColumn> MyList2 = new List<DataColumn>();
+            List<DataColumn> MyList3 = new List<DataColumn>();
+            List<DataColumn> MyList4 = new List<DataColumn>();
+            List<DataColumn> MyList5 = new List<DataColumn>();
 
-            MyList.Add("abc"); MyList.Add("cde"); MyList.Add("efg");
+            MyList.Add(new DataColumn() {
+                name = "abc"
+            });
+            MyList.Add(new DataColumn()
+            {
+                name = "cde"
+            });
+            MyList.Add(new DataColumn()
+            {
+                name = "efg"
+            }); 
             testData.Add(new DataStructure()
             {
                 name = "match1",
@@ -31,7 +41,18 @@ namespace IBMiCmd.Tests
                 dataStructures = new List<DataStructure>()
             });
 
-            MyList1.Add("abc"); MyList.Add("cde"); MyList.Add("efg");
+            MyList1.Add(new DataColumn()
+            {
+                name = "abc"
+            });
+            MyList1.Add(new DataColumn()
+            {
+                name = "cde"
+            });
+            MyList1.Add(new DataColumn()
+            {
+                name = "efg"
+            });
             testData.Add(new DataStructure()
             {
                 name = "nomatch",
@@ -39,7 +60,18 @@ namespace IBMiCmd.Tests
                 dataStructures = new List<DataStructure>()
             });
 
-            MyList2.Add("abc"); MyList.Add("cde"); MyList.Add("efg");
+            MyList2.Add(new DataColumn()
+            {
+                name = "abc"
+            });
+            MyList2.Add(new DataColumn()
+            {
+                name = "cde"
+            });
+            MyList2.Add(new DataColumn()
+            {
+                name = "efg"
+            });
             DataStructure nested = new DataStructure()
             {
                 name = "nested",
@@ -47,7 +79,18 @@ namespace IBMiCmd.Tests
                 dataStructures = new List<DataStructure>()
             };
 
-            MyList3.Add("matchingthings"); MyList.Add("is"); MyList.Add("easy");
+            MyList3.Add(new DataColumn()
+            {
+                name = "matchingthings"
+            });
+            MyList3.Add(new DataColumn()
+            {
+                name = "cde"
+            });
+            MyList3.Add(new DataColumn()
+            {
+                name = "efg"
+            });
             nested.dataStructures.Add(new DataStructure()
             {
                 name = "matchinner",
@@ -55,7 +98,18 @@ namespace IBMiCmd.Tests
                 dataStructures = new List<DataStructure>()
             });
 
-            MyList5.Add("abc"); MyList.Add("matchInnerInner"); MyList.Add("efg");
+            MyList5.Add(new DataColumn()
+            {
+                name = "abc"
+            });
+            MyList5.Add(new DataColumn()
+            {
+                name = "matchInnerInner"
+            });
+            MyList5.Add(new DataColumn()
+            {
+                name = "efg"
+            });
             DataStructure nested2 = new DataStructure()
             {
                 name = "matchnested",
@@ -63,8 +117,18 @@ namespace IBMiCmd.Tests
                 dataStructures = new List<DataStructure>()
             };
 
-            MyList4.Add("mat"); MyList.Add("cde"); MyList.Add("efg");
-
+            MyList4.Add(new DataColumn()
+            {
+                name = "mat"
+            });
+            MyList4.Add(new DataColumn()
+            {
+                name = "cde"
+            });
+            MyList4.Add(new DataColumn()
+            {
+                name = "efg"
+            });
 
             DataStructure nested1 = new DataStructure()
             {
@@ -82,11 +146,11 @@ namespace IBMiCmd.Tests
 
             List<string> result = RPGAutoCompleter.MatchLine("match");
             Assert.IsTrue(result.Count == 5);
-            Assert.IsTrue(result[0] == "match1");
-            Assert.IsTrue(result[1] == "matchInnerInner");
-            Assert.IsTrue(result[2] == "matchinner");
-            Assert.IsTrue(result[3] == "matchingthings");
-            Assert.IsTrue(result[4] == "matchnested");
+            Assert.IsTrue(result.Contains("match1"));
+            Assert.IsTrue(result.Contains("matchInnerInner"));
+            Assert.IsTrue(result.Contains("matchinner"));
+            Assert.IsTrue(result.Contains("matchingthings"));
+            Assert.IsTrue(result.Contains("matchnested"));
             
         }
     }
