@@ -26,9 +26,9 @@ namespace IBMiCmd.Tests
             Assert.IsTrue(RPGParser.GetVariableAtColumn(" myVariable_that_isLong", 23, out mt) == "myVariable_that_isLong");
             Assert.IsTrue(mt == MatchType.VARIABLE);
             Assert.IsTrue(RPGParser.GetVariableAtColumn("ds.", 3, out mt) == "ds");
-            Assert.IsTrue(mt == MatchType.STRUCT);
+            Assert.IsTrue(mt == MatchType.STRUCT_FIELD);
             Assert.IsTrue(RPGParser.GetVariableAtColumn("nested.ds.", 10, out mt) == "ds");
-            Assert.IsTrue(mt == MatchType.STRUCT);
+            Assert.IsTrue(mt == MatchType.STRUCT_FIELD);
             Assert.IsTrue(RPGParser.GetVariableAtColumn("  if myVar = 510;", 11, out mt) == "");
             Assert.IsTrue(mt == MatchType.NONE);
             Assert.IsTrue(RPGParser.GetVariableAtColumn(" myVar = 510", 10, out mt) == "");
